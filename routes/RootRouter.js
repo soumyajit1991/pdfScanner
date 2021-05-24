@@ -31,7 +31,7 @@ let screens = (function () {
 })()
 
 const mainScreen = (
-  <NavigationContainer initialRouteName="Login">
+  <NavigationContainer initialRouteName="Home">
     <Stack.Navigator>{screens}</Stack.Navigator>
   </NavigationContainer>
 )
