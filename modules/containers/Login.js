@@ -91,17 +91,18 @@ class Login extends Component {
 
             <Button
               onPress={(val) => {
-                LoginProcessor.validateUser(
-                  this.state.username,
-                  this.state.password
-                )
-                  .then((response) => {
-                    this.setState({
-                      showModal: false
-                    })
-                    this.props.navigation.navigate('Home')
-                  })
-                  .catch((error) => alert(error))
+                this.props.navigation.navigate('Home')
+                // LoginProcessor.validateUser(
+                //   this.state.username,
+                //   this.state.password
+                // )
+                //   .then((response) => {
+                //     this.setState({
+                //       showModal: false
+                //     })
+                //     this.props.navigation.navigate('Home')
+                //   })
+                //   .catch((error) => alert(error))
               }}
               title="Login"
             />

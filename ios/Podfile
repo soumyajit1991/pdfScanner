@@ -25,6 +25,11 @@ target 'pdfScanner' do
 end
 
 pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+pod 'react-native-camera', path: '../node_modules/react-native-camera', subspecs: [
+  'TextDetector',
+  'FaceDetectorMLKit',
+  'BarcodeDetectorMLKit'
+]
 target 'pdfScanner-tvOS' do
   # Pods for pdfScanner-tvOS
 
