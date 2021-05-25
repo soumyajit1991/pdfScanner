@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Image, Dimensions } from 'react-native'
 import { IconButton, Button } from 'react-native-paper'
 import { RNCamera } from 'react-native-camera'
 // import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -14,13 +14,11 @@ export class Biller extends Component {
   }
 
   static getDerivedStateFromProps(props, newState) {
-    debugger
     let state
-    if (props.data && props.data !== undefined)
+
+    if (props?.route?.params !== undefined)
       state = { data: props.route.params.params }
-    // this.setState({
-    //   data: this.props.navigation.params
-    // })
+
     return {
       ...newState,
       ...state
@@ -42,7 +40,6 @@ export class Biller extends Component {
   }
 
   render() {
-    debugger
     return (
       <View style={{ flex: 1, alignItems: 'center', margin: 10 }}>
         <IconButton
@@ -54,7 +51,16 @@ export class Biller extends Component {
             this.props.navigation.navigate('Camera')
           }}
         />
-        {/* {this.state.data ? } */}
+        {this.state?.data ? (
+          <Image
+            style={{
+              borderRadius: 5,
+              width: Dimensions.get('window').width - 100,
+              height: 400
+            }}
+            source={{ uri: this.state.data }}
+          />
+        ) : null}
       </View>
     )
   }
