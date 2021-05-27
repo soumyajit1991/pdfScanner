@@ -41,7 +41,6 @@ export class Details extends Component {
   static getDerivedStateFromProps(props, newState) {
     let state
 
-    debugger
     if (props?.route?.params !== undefined)
       state = { imageData: props.route.params.imageData }
 
@@ -99,7 +98,8 @@ export class Details extends Component {
   render() {
     return (
       <View style={styles['mainContainer']}>
-        {this.state?.imageData ? this._renderContent() : null}
+        {this._renderContent()}
+        {/* {this.state?.imageData ? this._renderContent() : null} */}
         {
           <Button
             mode={'outlined'}
@@ -132,7 +132,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: Dimensions.get('window').width - 100,
     height: 400,
-    margin: 10
+    margin: 10,
+    borderWidth: 1 //to be removed
   },
   textContainer: {
     height: 40,

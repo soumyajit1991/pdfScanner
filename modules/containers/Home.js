@@ -32,7 +32,6 @@ class Home extends Component {
   }
 
   render() {
-    debugger
     return (
       <View style={{ flex: 1 }}>
         <View style={styles['mainContainer']}>
@@ -45,8 +44,8 @@ class Home extends Component {
             <Button
               mode={'outlined'}
               style={styles['billButton']}
-              // icon={Platform.OS === 'ios' ? 'camera' : 'md-camera'}
-              onPress={() => this.props.navigation.navigate('Camera')}>
+              // onPress={() => this.props.navigation.navigate('Camera')}
+              onPress={() => this.props.navigation.navigate('Details')}>
               Add Bill
             </Button>
           }
