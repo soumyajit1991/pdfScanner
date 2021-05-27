@@ -5,7 +5,7 @@ import { Button } from 'react-native-paper'
 
 import { Login } from '../modules/containers/Login'
 import { Home } from '../modules/containers/Home'
-import { Biller } from '../modules/containers/Biller'
+import { Details } from '../modules/containers/Details'
 import { Camera } from '../modules/containers/Camera'
 
 let Stack = createStackNavigator()
@@ -23,10 +23,17 @@ let screens = (function () {
       name={'Home'}
       component={Home}
       options={{
+        header: () => null,
         headerLeft: () => null
       }}
     />,
-    <Stack.Screen name={'Biller'} component={Biller} />,
+    <Stack.Screen
+      name={'Details'}
+      component={Details}
+      options={{
+        headerLeft: () => null
+      }}
+    />,
     <Stack.Screen name={'Camera'} component={Camera} />
   ]
 

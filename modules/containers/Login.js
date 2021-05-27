@@ -90,8 +90,15 @@ class Login extends Component {
             </View>
 
             <Button
-              onPress={(val) => {
-                this.props.navigation.navigate('Home')
+              title="Login"
+              onPress={() => {
+                this.setState({
+                  showModal: false
+                })
+                this.props.navigation.navigate('Home', {
+                  username: 'Ankit'
+                })
+
                 // LoginProcessor.validateUser(
                 //   this.state.username,
                 //   this.state.password
@@ -100,11 +107,14 @@ class Login extends Component {
                 //     this.setState({
                 //       showModal: false
                 //     })
-                //     this.props.navigation.navigate('Home')
+                //     this.props.navigation.navigate('Home', {
+                //       params: {
+                //         username: this.state.username
+                //       }
+                //     })
                 //   })
                 //   .catch((error) => alert(error))
               }}
-              title="Login"
             />
           </View>
         </TouchableOpacity>
