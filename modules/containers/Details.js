@@ -52,25 +52,13 @@ export class Details extends Component {
   }
 
   _renderContent() {
-    // let shopName, billNumber, billDate, billAmount
-
     return (
       <View>
         <Image
-          style={{
-            borderRadius: 5,
-            width: Dimensions.get('window').width - 100,
-            height: 400,
-            margin: 10
-          }}
+          style={styles['imageContainer']}
           source={{ uri: this.state.imageData }}
         />
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            magin: 20
-          }}>
+        <View style={styles['detailsContainer']}>
           {Object.values(detailsObj).map(
             (item) => (
               (<Text>{item.value}</Text>),
@@ -97,7 +85,7 @@ export class Details extends Component {
                         break
                     }
                   }}
-                  placeholderTextColor={'#333'}
+                  placeholderTextColor={'#ddd'}
                   placeholder={`Enter ${item.value}`}
                 />
               )
@@ -109,13 +97,12 @@ export class Details extends Component {
   }
 
   render() {
-    // return null
-    debugger
     return (
       <View style={{ flex: 1, alignItems: 'center', margin: 10 }}>
         {this.state?.imageData ? this._renderContent() : null}
         {
           <Button
+            mode={'outlined'}
             style={{ width: 50, alignSelf: 'center' }}
             onPress={() =>
               this.props.navigation.navigate('Home', {
@@ -134,11 +121,22 @@ export class Details extends Component {
 }
 
 const styles = StyleSheet.create({
+  detailsContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 20
+  },
+  imageContainer: {
+    borderRadius: 5,
+    width: Dimensions.get('window').width - 100,
+    height: 400,
+    margin: 10
+  },
   textContainer: {
     height: 40,
     width: Dimensions.get('window').width - 150,
     margin: 10,
-    borderWidth: 1,
+    borderBottomWidth: 1,
     borderRadius: 5,
     borderBottomColor: '#dfdfdf'
   }

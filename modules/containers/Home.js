@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Dimensions, View, Text, Platform } from 'react-native'
+import { Dimensions, View, Text, Platform, StyleSheet } from 'react-native'
 import { Button, Avatar } from 'react-native-paper'
-// import person from '../assets/drawables/person1.png'
 
 class Home extends Component {
   constructor(props) {
@@ -36,36 +35,17 @@ class Home extends Component {
     debugger
     return (
       <View style={{ flex: 1 }}>
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#00a46c',
-            height: '28%',
-            borderBottomLeftRadius: 30,
-            borderBottomRightRadius: 30
-            // paddingHorizontal: 20 //casca and ariana banks
-          }}>
+        <View style={styles['mainContainer']}>
           <Text>{`Hello, ${this.props.route.params.username}`}</Text>
         </View>
-        <Avatar.Image
-          style={{
-            backgroundColor: '#ddd',
-            alignSelf: 'center',
-            top: '22%',
-            position: 'absolute'
-          }}
-          size={100}
-          // icon={Platform.OS === 'ios' ? 'person-circle' : 'md-person-circle'}
-          // source={require('../assets/drawables/person3.png')}
-        />
-        <View style={{ top: '8%', borderWidth: 1, flex: 1 }}>
+        <Avatar.Image style={styles['avatarContainer']} size={100} />
+        <View style={styles['footerContainer']}>
           {this.state.data?.length !== 0 ? this._renderList() : null}
           {
             <Button
               mode={'outlined'}
-              style={{ width: 150, alignSelf: 'center' }}
-              icon={Platform.OS === 'ios' ? 'camera' : 'md-camera'}
+              style={styles['billButton']}
+              // icon={Platform.OS === 'ios' ? 'camera' : 'md-camera'}
               onPress={() => this.props.navigation.navigate('Camera')}>
               Add Bill
             </Button>
@@ -75,5 +55,28 @@ class Home extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  footerContainer: { top: '8%', flex: 1 },
+  billButton: {
+    width: 150,
+    alignSelf: 'center',
+    top: 200
+  },
+  mainContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#00a46c',
+    height: '28%',
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30
+  },
+  avatarContainer: {
+    backgroundColor: '#ddd',
+    alignSelf: 'center',
+    top: '22%',
+    position: 'absolute'
+  }
+})
 
 export { Home }
