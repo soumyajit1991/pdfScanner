@@ -85,7 +85,7 @@ export class Details extends Component {
                         break
                     }
                   }}
-                  placeholderTextColor={'#ddd'}
+                  placeholderTextColor={'#111'}
                   placeholder={`Enter ${item.value}`}
                 />
               )
@@ -98,12 +98,12 @@ export class Details extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', margin: 10 }}>
+      <View style={styles['mainContainer']}>
         {this.state?.imageData ? this._renderContent() : null}
         {
           <Button
             mode={'outlined'}
-            style={{ width: 50, alignSelf: 'center' }}
+            style={styles['buttonContainer']}
             onPress={() =>
               this.props.navigation.navigate('Home', {
                 shopName: this.shopName,
@@ -121,6 +121,8 @@ export class Details extends Component {
 }
 
 const styles = StyleSheet.create({
+  buttonContainer: { width: 100, alignSelf: 'center' },
+  mainContainer: { flex: 1, alignItems: 'center', margin: 10 },
   detailsContainer: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -136,7 +138,7 @@ const styles = StyleSheet.create({
     height: 40,
     width: Dimensions.get('window').width - 150,
     margin: 10,
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
     borderRadius: 5,
     borderBottomColor: '#dfdfdf'
   }
